@@ -1,0 +1,11 @@
+class Solution(object):
+    def findLHS(self, nums):
+        nums.sort()
+        maxlength=0
+        j=0
+        for i in range(len(nums)):
+            while((nums[i]-nums[j])>1):
+                j+=1
+            if((nums[i]-nums[j])==1):
+                maxlength=max(maxlength,i-j+1)
+        return maxlength
