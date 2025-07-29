@@ -1,0 +1,14 @@
+class Solution(object):
+    def removeDuplicates(self, nums):
+        if len(nums)==0:
+            return 0
+        #first number is always unique
+        k=1
+        for i in range(len(nums)-1):
+            #checking if it is unique
+            if(nums[i]!=nums[i+1]):
+                #if unique put it at position nums[k]
+                nums[k]=nums[i+1]
+                #incrementing value of k
+                k+=1
+        return k
