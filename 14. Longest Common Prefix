@@ -1,0 +1,20 @@
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+
+        #check Number of trings
+        if len(strs) == 1:
+            return strs[0]
+        #find length of first string
+        len_string = len(strs[0])
+
+        #Going throught the first string
+        for i in range(len_string):
+            #trimming the string one by one from last with each loop
+            trim_string = strs[0][:len_string - i]
+            #checking if all strings in array starts with the trimmed string above
+            check_prefix = all(string.startswith(trim_string) for string in strs)
+            #if it matches return the trimmed string
+            if check_prefix:
+                return trim_string
+        #return "" if none of the cases are true
+        return ""
